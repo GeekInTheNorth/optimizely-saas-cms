@@ -1,0 +1,134 @@
+{
+  "key": "BlogPostPage",
+  "displayName": "Blog post",
+  "description": "Represents a single blog post",
+  "baseType": "_page",
+  "isContract": false,
+  "sortOrder": 100,
+  "mayContainTypes": [
+    "*"
+  ],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "contracts": [],
+  "properties": {
+    "Heading": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Heading",
+      "description": "The heading for this blog post",
+      "localized": true,
+      "required": true,
+      "group": "Information",
+      "sortOrder": -100,
+      "indexingType": "searchable"
+    },
+    "ArticleSubHeading": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Subhead",
+      "description": "",
+      "localized": true,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "indexingType": "searchable"
+    },
+    "Topic": {
+      "type": "array",
+      "format": "selectMany",
+      "displayName": "Topic",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Categories",
+      "sortOrder": 0,
+      "indexingType": "searchable",
+      "items": {
+        "type": "string",
+        "enum": [
+          {
+            "value": "Savings",
+            "displayName": "Savings"
+          },
+          {
+            "value": "Credit",
+            "displayName": "Credit"
+          },
+          {
+            "value": "Mortgage",
+            "displayName": "Mortgage"
+          },
+          {
+            "value": "Retirement",
+            "displayName": "Retirement"
+          },
+          {
+            "value": "Investment",
+            "displayName": "Investment"
+          }
+        ]
+      }
+    },
+    "BlogPostBody": {
+      "type": "richText",
+      "displayName": "Body",
+      "description": "The main body for this blog post",
+      "localized": true,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 20,
+      "indexingType": "searchable"
+    },
+    "ArticleAuthor": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Author",
+      "description": "",
+      "localized": false,
+      "required": true,
+      "group": "Information",
+      "sortOrder": 20,
+      "indexingType": "searchable"
+    },
+    "BlogPostPromoImage": {
+      "type": "contentReference",
+      "displayName": "Promo image",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 30,
+      "allowedTypes": [
+        "_media"
+      ],
+      "restrictedTypes": []
+    },
+    "continueReading": {
+      "type": "array",
+      "displayName": "Continue Reading",
+      "description": "Override the default content for Continue Reading",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 60,
+      "items": {
+        "type": "content",
+        "allowedTypes": [
+          "_component"
+        ],
+        "restrictedTypes": []
+      }
+    },
+    "SeoSettings": {
+      "type": "component",
+      "contentType": "PageSeoSettings",
+      "displayName": "SEO settings",
+      "description": "Configure the common properties to improve the indexing of the page by search engines",
+      "localized": false,
+      "required": false,
+      "group": "SeoSettings",
+      "sortOrder": 200
+    }
+  }
+}

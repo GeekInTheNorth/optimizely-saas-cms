@@ -1,0 +1,66 @@
+{
+  "key": "TestimonialElement",
+  "displayName": "Testimonial",
+  "description": "A customer testimonial",
+  "baseType": "_component",
+  "isContract": false,
+  "sortOrder": 0,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [
+    "elementEnabled"
+  ],
+  "contracts": [],
+  "properties": {
+    "customerName": {
+      "type": "string",
+      "displayName": "Customer Name",
+      "description": "",
+      "localized": false,
+      "required": true,
+      "group": "Information",
+      "sortOrder": 10
+    },
+    "customerLocation": {
+      "type": "string",
+      "displayName": "Customer Location",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 20
+    },
+    "customerImage": {
+      "type": "contentReference",
+      "displayName": "Customer Photo",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 30,
+      "allowedTypes": [
+        "_image"
+      ],
+      "restrictedTypes": []
+    },
+    "referenceTitle": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Reference title",
+      "description": "",
+      "localized": true,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 40
+    },
+    "referenceText": {
+      "type": "richText",
+      "displayName": "Reference text",
+      "description": "",
+      "localized": true,
+      "required": true,
+      "group": "Information",
+      "sortOrder": 50
+    }
+  }
+}

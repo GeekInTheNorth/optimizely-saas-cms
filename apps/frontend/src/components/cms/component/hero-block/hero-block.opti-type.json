@@ -1,0 +1,122 @@
+{
+  "key": "HeroBlock",
+  "displayName": "Hero",
+  "description": "Hero Component, usable as a block or section",
+  "baseType": "_component",
+  "isContract": false,
+  "sortOrder": 100,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [
+    "sectionEnabled"
+  ],
+  "contracts": [],
+  "properties": {
+    "HeroImage": {
+      "type": "contentReference",
+      "displayName": "Hero Image",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "allowedTypes": [],
+      "restrictedTypes": []
+    },
+    "Icon": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Icon",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 10
+    },
+    "Eyebrow": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Eyebrow",
+      "description": "",
+      "localized": true,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 20
+    },
+    "Heading": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Heading",
+      "description": "",
+      "localized": true,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 30
+    },
+    "SubHeading": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Sub heading",
+      "description": "The subheading for this block",
+      "localized": true,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 40
+    },
+    "Description": {
+      "type": "richText",
+      "displayName": "Description",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 50
+    },
+    "HeroColor": {
+      "type": "string",
+      "format": "selectOne",
+      "displayName": "Color",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 60,
+      "enum": [
+        {
+          "value": "blue",
+          "displayName": "Blue"
+        },
+        {
+          "value": "orange",
+          "displayName": "Orange"
+        },
+        {
+          "value": "green",
+          "displayName": "Green"
+        },
+        {
+          "value": "red",
+          "displayName": "Red"
+        },
+        {
+          "value": "purple",
+          "displayName": "Purple"
+        },
+        {
+          "value": "dark-blue",
+          "displayName": "Dark Blue"
+        }
+      ]
+    },
+    "HeroButton": {
+      "type": "component",
+      "contentType": "ButtonBlock",
+      "displayName": "Button",
+      "description": "The cta or normal navigation button for the hero",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 70
+    }
+  }
+}

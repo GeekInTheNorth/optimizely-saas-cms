@@ -1,0 +1,81 @@
+{
+  "key": "PageSeoSettings",
+  "displayName": "Page SEO Settings",
+  "description": "",
+  "baseType": "_component",
+  "isContract": false,
+  "sortOrder": 100,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "contracts": [],
+  "properties": {
+    "MetaTitle": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Meta title",
+      "description": "",
+      "localized": true,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "indexingType": "searchable"
+    },
+    "MetaDescription": {
+      "type": "string",
+      "displayName": "Meta description",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "indexingType": "searchable"
+    },
+    "MetaKeywords": {
+      "type": "array",
+      "displayName": "Meta Keywords",
+      "description": "",
+      "localized": true,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 25,
+      "indexingType": "searchable",
+      "items": {
+        "type": "string",
+        "format": "shortString"
+      }
+    },
+    "SharingImage": {
+      "type": "contentReference",
+      "displayName": "Sharing image",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 100,
+      "allowedTypes": [],
+      "restrictedTypes": []
+    },
+    "GraphType": {
+      "type": "string",
+      "format": "selectOne",
+      "displayName": "OpenGraph Type",
+      "description": "",
+      "localized": false,
+      "required": true,
+      "group": "Information",
+      "sortOrder": 200,
+      "indexingType": "searchable",
+      "enum": [
+        {
+          "value": "-",
+          "displayName": "Undefined"
+        },
+        {
+          "value": "article",
+          "displayName": "Article"
+        }
+      ]
+    }
+  }
+}

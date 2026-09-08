@@ -1,1 +1,0 @@
-export { CmsContentLink, CmsContentLink as default, type CmsContentLinkProps } from '@remkoj/optimizely-cms-nextjs/components'

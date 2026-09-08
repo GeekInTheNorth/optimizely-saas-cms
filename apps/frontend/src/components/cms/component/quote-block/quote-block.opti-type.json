@@ -1,0 +1,95 @@
+{
+  "key": "QuoteBlock",
+  "displayName": "Quote",
+  "description": "A block used to display a quote.",
+  "baseType": "_component",
+  "isContract": false,
+  "sortOrder": 100,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [],
+  "contracts": [],
+  "properties": {
+    "QuoteText": {
+      "type": "string",
+      "displayName": "Quote",
+      "description": "Represents user's quote",
+      "localized": true,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 10
+    },
+    "QuoteColor": {
+      "type": "string",
+      "format": "selectOne",
+      "displayName": "Color",
+      "description": "The color for this quote",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 20,
+      "enum": [
+        {
+          "value": "blue",
+          "displayName": "Blue"
+        },
+        {
+          "value": "orange",
+          "displayName": "Orange"
+        },
+        {
+          "value": "green",
+          "displayName": "Green"
+        },
+        {
+          "value": "red",
+          "displayName": "Red"
+        },
+        {
+          "value": "white",
+          "displayName": "White"
+        }
+      ]
+    },
+    "QuoteProfilePicture": {
+      "type": "contentReference",
+      "displayName": "Profile Photo",
+      "description": "The profile photo for the author of this quote",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 30,
+      "allowedTypes": [],
+      "restrictedTypes": []
+    },
+    "QuoteProfileName": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Profile name",
+      "description": "The name of this author",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 40
+    },
+    "QuoteProfileLocation": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Profile Location",
+      "description": "The location / company of the author",
+      "localized": true,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 60
+    },
+    "QuoteActive": {
+      "type": "boolean",
+      "displayName": "Active?",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 70
+    }
+  }
+}

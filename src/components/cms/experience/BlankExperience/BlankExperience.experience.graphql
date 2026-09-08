@@ -1,3 +1,0 @@
-fragment BlankExperienceData on BlankExperience {
-  ...ExperienceData
-}

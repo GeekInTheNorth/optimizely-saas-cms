@@ -1,0 +1,26 @@
+{
+  "key": "ParagraphElement",
+  "displayName": "Paragraph",
+  "description": "",
+  "baseType": "_component",
+  "isContract": false,
+  "sortOrder": 0,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [
+    "elementEnabled"
+  ],
+  "contracts": [],
+  "properties": {
+    "text": {
+      "type": "richText",
+      "displayName": "Text",
+      "description": "",
+      "localized": true,
+      "required": true,
+      "group": "Information",
+      "sortOrder": 10,
+      "indexingType": "searchable"
+    }
+  }
+}

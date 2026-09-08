@@ -1,0 +1,62 @@
+{
+  "key": "ArticleListElement",
+  "displayName": "Article List",
+  "description": "Show an article listing",
+  "baseType": "_component",
+  "isContract": false,
+  "sortOrder": 0,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [
+    "elementEnabled"
+  ],
+  "contracts": [],
+  "properties": {
+    "articleListCount": {
+      "type": "integer",
+      "displayName": "Number of items",
+      "description": "",
+      "localized": false,
+      "required": true,
+      "group": "Information",
+      "sortOrder": 20,
+      "minimum": 1,
+      "maximum": 6
+    },
+    "topics": {
+      "type": "array",
+      "format": "selectMany",
+      "displayName": "Topics",
+      "description": "Select the Topics from which to pick the items",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 30,
+      "items": {
+        "type": "string",
+        "enum": [
+          {
+            "value": "Savings",
+            "displayName": "Savings"
+          },
+          {
+            "value": "Credit",
+            "displayName": "Credit"
+          },
+          {
+            "value": "Mortgage",
+            "displayName": "Mortgage"
+          },
+          {
+            "value": "Retirement",
+            "displayName": "Retirement"
+          },
+          {
+            "value": "Investment",
+            "displayName": "Investment"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "key": "CarouselBlock",
+  "displayName": "Carousel",
+  "description": "",
+  "baseType": "_component",
+  "isContract": false,
+  "sortOrder": 100,
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "compositionBehaviors": [
+    "sectionEnabled"
+  ],
+  "contracts": [],
+  "properties": {
+    "CarouselItemsContentArea": {
+      "type": "array",
+      "displayName": "Carousel items",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 10,
+      "minItems": 1,
+      "maxItems": 10,
+      "items": {
+        "type": "content",
+        "allowedTypes": [
+          "HeroBlock",
+          "_image",
+          "_video",
+          "QuoteBlock"
+        ],
+        "restrictedTypes": []
+      }
+    }
+  }
+}
