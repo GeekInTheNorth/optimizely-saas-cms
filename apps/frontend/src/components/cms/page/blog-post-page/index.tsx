@@ -22,6 +22,7 @@ import { toValidOpenGraphType } from "@/lib/opengraph";
 import { type OptimizelyNextPage } from "@remkoj/optimizely-cms-nextjs";
 import { RichText, CmsEditable, CmsContentArea, type GenericContext } from "@remkoj/optimizely-cms-react/rsc";
 import { localeToGraphLocale } from "@remkoj/optimizely-graph-client";
+import { headers } from "next/headers";
 
 export const BlogPostPage: OptimizelyNextPage<
   BlogPostPageDataFragment
@@ -41,6 +42,7 @@ export const BlogPostPage: OptimizelyNextPage<
 }) => {
   const hasOwnContinueReading = continueReading && continueReading.length ? true : false
   const sharedContinueReading = await ContinueReadingComponent.getSharedInstanceData(ctx)
+  const nonce = headers().get("x-nonce") ?? undefined;
 
   return (
     <>
@@ -127,6 +129,10 @@ export const BlogPostPage: OptimizelyNextPage<
         <FixedContinueReading contentLink={contentLink} topics={topics} ctx={ctx} />
       )}
       <div className="col-span-12 lg:col-span-10 lg:col-start-2 mx-auto mt-8"></div>
+      <script
+            nonce={ nonce }
+            dangerouslySetInnerHTML={{ __html: `console.log("Hello World, I'm a script tag with an nonce");` }}
+        />
     </>
   );
 };

@@ -56,26 +56,57 @@ async function getSecurityHeaders(pathname: string): Promise<SecurityHeader[]>
     return cachedHeaders;
 }
 
-function applySecurityHeaders(headers: Headers, securityHeaders: SecurityHeader[])
+const noncePlaceholder = "'nonce-random'";
+const cspHeaderNames = ['content-security-policy', 'content-security-policy-report-only'];
+
+function isCspHeader(key: string): boolean
+{
+    return cspHeaderNames.includes(key.toLowerCase());
+}
+
+function generateNonce(): string
+{
+    const bytes = crypto.getRandomValues(new Uint8Array(32));
+    return btoa(Array.from(bytes, b => String.fromCharCode(b)).join(''));
+}
+
+function applySecurityHeaders(headers: Headers, securityHeaders: SecurityHeader[], nonce: string)
 {
     securityHeaders.forEach(h => {
+        const value = isCspHeader(h.key) ? h.value.replaceAll(noncePlaceholder, `'nonce-${nonce}'`) : h.value;
         if (h.isRemoval)
             headers.delete(h.key);
         else if (h.isReplacement)
-            headers.set(h.key, h.value);
+            headers.set(h.key, value);
         else
-            headers.append(h.key, h.value);
+            headers.append(h.key, value);
     });
 }
 
 /**
  * Site middleware, which applies the security headers published by the
- * headerEndpoint to every matched response.
+ * headerEndpoint to every matched response, substituting a per request
+ * nonce into the Content Security Policy headers.
+ *
+ * The nonce and the CSP headers are also forwarded on the request, so that
+ * Next.js applies the nonce to its own script and style tags when rendering
+ * dynamically, and so components can read it using headers().get('x-nonce').
  */
 export async function middleware(request: NextRequest)
 {
-    const response = NextResponse.next()
-    applySecurityHeaders(response.headers, await getSecurityHeaders(request.nextUrl.pathname))
+    const nonce = generateNonce()
+    const securityHeaders = await getSecurityHeaders(request.nextUrl.pathname)
+
+    const requestHeaders = new Headers(request.headers)
+    requestHeaders.set('x-nonce', nonce)
+    applySecurityHeaders(requestHeaders, securityHeaders.filter(h => isCspHeader(h.key)), nonce)
+
+    const response = NextResponse.next({
+        request: {
+            headers: requestHeaders
+        }
+    })
+    applySecurityHeaders(response.headers, securityHeaders, nonce)
     return response
 }
 
