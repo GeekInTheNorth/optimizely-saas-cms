@@ -70,7 +70,7 @@ export async function middleware(request: NextRequest)
 export const config = {
     matcher: [{
       // Skip all internal paths and paths with a '.'
-      source: '/((?!.*\.|api|assets|preview|_next\/static|_next\/image|_vercel).*)',
+      source: '/((?!.*\\.|api|assets|preview|_next\\/static|_next\\/image|_vercel).*)',
       // Skip the inner page fetch made by this middleware, so it is not invoked twice per page
       missing: [{ type: 'header', key: 'x-csp-passthrough' }]
     }]
