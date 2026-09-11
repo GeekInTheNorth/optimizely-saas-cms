@@ -4,12 +4,9 @@ import { NextResponse, type NextRequest } from "next/server";
 // `withEditFallback` wrapper show here.
 // import { withEditFallback } from '@remkoj/optimizely-cms-nextjs/preview'
 
-//#region Types
 type SecurityHeader = { key: string; value: string; isRemoval: boolean; isReplacement: boolean };
 type SecurityHeadersResponse = { headers: SecurityHeader[]; publishedAt: string; cacheSeconds: number };
-//#endregion
 
-//#region Configuration
 // Endpoint publishing the compiled security headers, and how long to keep them
 const headerEndpoint = "https://function.zaius.app/stott_security/compiled_headers/712eff36-ac9e-43cd-91e4-a494ba41b5e5";
 const headerFetchTimeoutMs = 2000;
@@ -22,7 +19,6 @@ const cspHeaderNames = ['content-security-policy', 'content-security-policy-repo
 
 // Marks the inner page fetch made by this middleware, so it is not processed twice
 const passthroughHeader = 'x-csp-passthrough';
-//#endregion
 
 /**
  * Site middleware, which applies the security headers published by the
@@ -76,7 +72,6 @@ export const config = {
     }]
 };
 
-//#region Security headers
 // Module scoped cache of the compiled headers. Next.js ignores fetch cache
 // options in middleware, and this avoids an upstream call on every request.
 // The cache lives per edge isolate, so it is best effort rather than shared.
@@ -139,9 +134,7 @@ function isCspHeader(key: string): boolean
 {
     return cspHeaderNames.includes(key.toLowerCase());
 }
-//#endregion
 
-//#region Nonce injection
 function generateNonce(): string
 {
     const bytes = crypto.getRandomValues(new Uint8Array(32));
@@ -224,4 +217,3 @@ function nonceTransform(nonce: string): TransformStream<Uint8Array, Uint8Array>
         }
     });
 }
-//#endregion
