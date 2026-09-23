@@ -8,7 +8,7 @@ type SecurityHeader = { key: string; value: string; isRemoval: boolean; isReplac
 type SecurityHeadersResponse = { headers: SecurityHeader[]; publishedAt: string; cacheSeconds: number };
 
 // Endpoint publishing the compiled security headers, and how long to keep them
-const headerEndpoint = "https://function.zaius.app/stott_security/compiled_headers/712eff36-ac9e-43cd-91e4-a494ba41b5e5";
+const headerEndpoint = "https://function.zaius.app/stott_security/compiled_headers/294c0192-1eb9-4ad1-af74-4b4aacbd5df3";
 const headerFetchTimeoutMs = 2000;
 const defaultCacheSeconds = 300;
 const errorBackoffSeconds = 30;
